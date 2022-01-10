@@ -1,7 +1,7 @@
 import dataSetJson from "../dataset.json"
 
 export function searchAsync(value){
-    console.log("search async");
+    // console.log("search async");
     return new Promise((resolve, reject) => {
         let matchCounter = 0;
         const searchResult = dataSetJson.filter( (v, i) => {

@@ -11,14 +11,13 @@ import dataSetJson from "../dataset.json"
 import SearchResult from "./SearchResult";
 import { searchAsync } from "./searchApi"
 
-
+const START_SEARCH_DELAY = 100;
 
 function SearchComponent() {
   let [searchParams, setSearchParams] = useSearchParams();
   let [result, setResult] = useState([]);
   const queryStr = searchParams.get('q');
-  // let cachedSearchInput = "";
-  // let showSearchResultTimeout = 0;
+  let showSearchResultTimeout = 0;
 
   useEffect(()=>{
     if(queryStr != null){
@@ -28,7 +27,11 @@ function SearchComponent() {
 
   useEffect(()=>{
     if( queryStr != null){
-      startSearch(queryStr);
+      clearTimeout(showSearchResultTimeout);
+      showSearchResultTimeout = setTimeout(()=>{
+        startSearch(queryStr);
+    }, START_SEARCH_DELAY);
+      // startSearch(queryStr);
     }
   },[searchParams]);
 
@@ -41,6 +44,8 @@ function SearchComponent() {
         .catch(err => console.log(err));
     } 
   }
+
+  
 
   return (
     <StyledSearchBar>
