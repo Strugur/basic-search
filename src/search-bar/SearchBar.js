@@ -7,7 +7,6 @@ import { StyledSearchInput,
         StyledClearSearch,
         StyledSearchInputWrapper } from "./styled"
 import { useSearchParams, createSearchParams } from "react-router-dom";
-import dataSetJson from "../dataset.json"
 import SearchResult from "./SearchResult";
 import { searchAsync } from "./searchApi"
 
@@ -30,8 +29,7 @@ function SearchComponent() {
       clearTimeout(showSearchResultTimeout);
       showSearchResultTimeout = setTimeout(()=>{
         startSearch(queryStr);
-    }, START_SEARCH_DELAY);
-      // startSearch(queryStr);
+      }, START_SEARCH_DELAY);
     }
   },[searchParams]);
 
@@ -44,8 +42,6 @@ function SearchComponent() {
         .catch(err => console.log(err));
     } 
   }
-
-  
 
   return (
     <StyledSearchBar>
