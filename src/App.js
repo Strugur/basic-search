@@ -3,9 +3,11 @@ import './App.css';
 import SearchBar from './search-bar/SearchBar';
 import {  BrowserRouter as  Router} from 'react-router-dom';
 import styled from '@emotion/styled';
+import { HEADER_HEIGHT } from "./common/styled"
 
 const Header = styled.header(() =>({
   display: "flex",
+  height: HEADER_HEIGHT,
   flexDirection: "column",
   alignItems: "center",
   padding: "5px",

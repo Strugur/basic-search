@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
+import { HEADER_HEIGHT } from "../common/styled"
+
+const SEARCH_BAR_WIDTH = "250px";
 
 export const StyledSearchBar = styled.div(() =>({
     position: "relative",
     display:"flex",
     justifyContent: "center",
     height: "60px",
-    width: "250px",
+    width: SEARCH_BAR_WIDTH,
     backgroundColor: "#f1f1f1",
     margin: "5px",
     border: "1px solid black",
@@ -46,7 +49,7 @@ export const StyledClearSearch = styled.div(({ display }) =>({
 
 export const StyledSearchResult = styled.div(() =>({
   position: "absolute",
-  top: "70px",
+  top: HEADER_HEIGHT,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -54,12 +57,12 @@ export const StyledSearchResult = styled.div(() =>({
 
 export const StyledNotFound = styled.div(() =>({
   position: "absolute",
-  top: "70px",
+  top: HEADER_HEIGHT,
   display: "flex",
   flexDirection: "column",
   textAlign: "center",
   padding: "5px",
-  maxWidth: "250px",
+  maxWidth: SEARCH_BAR_WIDTH,
   overflow: "hidden"
   
 }));
